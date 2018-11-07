@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
 			nexts[j] = Resources.Load<GameObject>("Prefabs/Blocks/Next" + order[j].ToString() + PlayerPrefs.GetInt ("TetrominoesStyle").ToString("D2"));
 		}
 		GarbageGroup = Resources.Load<GameObject>("Prefabs/Blocks/GarbageGroup" + PlayerPrefs.GetInt ("TetrominoesStyle").ToString("D2"));
-		if (PlayerPrefs.GetInt ("GameType") == 3)
+		if (PlayerPrefs.GetInt ("GameType") == 3 && PlayerPrefs.GetInt ("SaveGame") == 0)
 			StartCoroutine (GridBehavior.SetCleaningArea (GarbageGroup));
         audios = GetComponents<AudioSource>();
         audios[0].volume = audios[0].volume * ((float)PlayerPrefs.GetInt("EffectsVolume") / 10);

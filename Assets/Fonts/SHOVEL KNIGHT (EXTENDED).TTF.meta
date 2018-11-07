@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b4f0ba0be01e5654892e8208cc591cfc
+timeCreated: 1503736929
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Shovel Knight (Extended)
+  fontNames:
+  - Shovel Knight (Extended)
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

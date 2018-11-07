@@ -265,6 +265,9 @@ public class SettingsManagerBehavior : MonoBehaviour
 		case 3:
 			styleTitle.text = "Fifth Reich";
 			break;
+		case 4:
+			styleTitle.text = "Tetron";
+			break;
 		}
 		GameObject.Find ("Curtains").GetComponent<CurtainsBehavior> ().UpdateSprites();
 	}
@@ -284,6 +287,9 @@ public class SettingsManagerBehavior : MonoBehaviour
 			break;
 		case 3:
 			DisplayPopup("Do a triple Tetris combo.\nUnlocks:\nFifth Reich", true);
+			break;
+		case 4:
+			DisplayPopup("Reach level 15 in Marathon.\nUnlocks:\nTetron", true);
 			break;
 		}
 		return false;

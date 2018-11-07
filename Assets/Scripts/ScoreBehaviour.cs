@@ -173,6 +173,8 @@ public class ScoreBehaviour : MonoBehaviour
         if (linesNeeded <= 0)
         {
             level += 1;
+			if (level == 15)
+				LevelFifteenSuccess ();
 			aSources[0].Play();
 			var tmpLevelUp = Instantiate (LevelUp, new Vector3(0.0f, 0.0f, 0.0f), LevelUp.transform.rotation);
 			tmpLevelUp.transform.SetParent(canvas.transform, false);
@@ -235,6 +237,24 @@ public class ScoreBehaviour : MonoBehaviour
 			StartCoroutine(PutPositionBack(levelNumber[i], 0.3f, 0.1f + ((float)i / 10)));
 			--i;
 			++j;
+		}
+	}
+
+	private static void LevelFifteenSuccess()
+	{
+		GameObject gameManager = GameObject.Find("$GameManager");
+		if (PlayerPrefs.GetString ("UnlockedCurtainsStyles", "10000000000000000000") [4] == '1')
+		{
+			gameManager.GetComponent<GameManagerBehaviour>().DisplayPopup("Tetron");
+		}
+		else
+		{
+			string tmpUnlockedCurtainsStyles = "";
+			tmpUnlockedCurtainsStyles += PlayerPrefs.GetString ("UnlockedCurtainsStyles", "10000000000000000000");
+			tmpUnlockedCurtainsStyles = tmpUnlockedCurtainsStyles.Remove(4,1);
+			tmpUnlockedCurtainsStyles = tmpUnlockedCurtainsStyles.Insert(4,"1");
+			PlayerPrefs.SetString ("UnlockedCurtainsStyles", tmpUnlockedCurtainsStyles);
+			gameManager.GetComponent<GameManagerBehaviour>().DisplayPopup("Unlocked:\nTetron");	
 		}
 	}
 }

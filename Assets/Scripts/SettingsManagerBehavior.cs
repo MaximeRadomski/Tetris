@@ -268,6 +268,9 @@ public class SettingsManagerBehavior : MonoBehaviour
 		case 4:
 			styleTitle.text = "Tetron";
 			break;
+		case 5:
+			styleTitle.text = "Babushka's Heaven";
+			break;
 		}
 		GameObject.Find ("Curtains").GetComponent<CurtainsBehavior> ().UpdateSprites();
 	}
@@ -290,6 +293,10 @@ public class SettingsManagerBehavior : MonoBehaviour
 			break;
 		case 4:
 			DisplayPopup("Reach level 15 in Marathon.\nUnlocks:\nTetron", true);
+			break;
+		case 5:
+			if (BabushkaSuccess () == false)
+				DisplayPopup("Grind your gears.\nUnlocks:\nBabushka's Heaven", true);
 			break;
 		}
 		return false;
@@ -328,5 +335,32 @@ public class SettingsManagerBehavior : MonoBehaviour
 			Invoke ("FadePopup", 0.05f);
 		else
 			--nbFadingPopups;
+	}
+
+	private bool BabushkaSuccess()
+	{
+		int tmpNbClicks = PlayerPrefs.GetInt ("BabushkaNbClicks", 0);
+		if (tmpNbClicks < 20 || tmpNbClicks > 20)
+		{
+			++tmpNbClicks;
+			PlayerPrefs.SetInt ("BabushkaNbClicks", tmpNbClicks);
+			return false;
+		}
+		if (PlayerPrefs.GetString ("UnlockedCurtainsStyles", "10000000000000000000") [5] == '1')
+		{
+			DisplayPopup("Babushka's Heaven", true);
+		}
+		else
+		{
+			PlayerPrefs.SetInt ("BabushkaNbClicks", 21);
+			string tmpUnlockedCurtainsStyles = "";
+			tmpUnlockedCurtainsStyles += PlayerPrefs.GetString ("UnlockedCurtainsStyles", "10000000000000000000");
+			tmpUnlockedCurtainsStyles = tmpUnlockedCurtainsStyles.Remove(5,1);
+			tmpUnlockedCurtainsStyles = tmpUnlockedCurtainsStyles.Insert(5,"1");
+			PlayerPrefs.SetString ("UnlockedCurtainsStyles", tmpUnlockedCurtainsStyles);
+			DisplayPopup("Unlocked:\nBabushka's Heaven", true);
+			SetActiveCurtainStyles();
+		}
+		return true;
 	}
 }

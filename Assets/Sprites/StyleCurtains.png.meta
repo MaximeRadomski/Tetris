@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d1a66d78018755c4c819c1c0b07cbbe9
-timeCreated: 1541629865
+timeCreated: 1541711097
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,7 @@ TextureImporter:
     21300004: StyleCurtains_2
     21300006: StyleCurtains_3
     21300008: StyleCurtains_4
+    21300010: StyleCurtains_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -155,6 +156,20 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StyleCurtains_5
+      rect:
+        serializedVersion: 2
+        x: 320
         y: 0
         width: 64
         height: 64
